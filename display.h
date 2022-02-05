@@ -3,9 +3,10 @@
 
 void setupDisplay();
 
+void changeDisplayDigit(short displayDigit);
 void writeDigit(short digit, short displayDigit);
-void writeMinus();
 
+void writeMinus();
 void writeNumber(short number);
 
 #endif

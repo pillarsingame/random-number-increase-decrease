@@ -45,7 +45,7 @@ void setupDisplay() {
     pinMode(displayDigit4, OUTPUT);
 }
 
-void writeDigit(short digit, short displayDigit) {
+void changeDisplayDigit(short displayDigit) {
     // Logic is flipped
     // LOW results in the digit being written to
     switch (displayDigit) {
@@ -82,7 +82,11 @@ void writeDigit(short digit, short displayDigit) {
             break;
         }
     }
+}
 
+void writeDigit(short digit, short displayDigit) {
+    changeDisplayDigit(displayDigit);
+    
     // Logic is normal
     // HIGH results in the segment being lit
     switch (digit) {
@@ -214,11 +218,8 @@ void writeDigit(short digit, short displayDigit) {
     delay(4);
 }
 
-void writeMinus() {
-    digitalWrite(displayDigit1, LOW);
-    digitalWrite(displayDigit2, HIGH);
-    digitalWrite(displayDigit3, HIGH);
-    digitalWrite(displayDigit4, HIGH);
+void writeMinus(short displayDigit) {
+    changeDisplayDigit(displayDigit);
 
     digitalWrite(segmentA, LOW);
     digitalWrite(segmentB, LOW);
@@ -240,7 +241,7 @@ void writeNumber(short number) {
     }
 
     if (isNegative) {
-        writeMinus();
+        writeMinus(1);
     }
     
     short digit[4];
@@ -251,7 +252,7 @@ void writeNumber(short number) {
         number /= 10;
     }
 
-        bool lastDigitWritten{false};
+    bool lastDigitWritten{false};
 
     for (short i = 0; i < 4; i++) {
         if (digit[i] != 0 || i == 3 || lastDigitWritten)
