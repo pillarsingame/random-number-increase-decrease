@@ -210,8 +210,8 @@ void writeDigit(short digit, short displayDigit) {
 
     // delay so the numbers are readable (at >=1ms)
     // but not too much as it will cause flickering (at >=5ms)
-    // 2ms seem to be the sweet spot
-    delay(2);
+    // 4ms seem to be the sweet spot
+    delay(4);
 }
 
 void writeNumber(short number) {

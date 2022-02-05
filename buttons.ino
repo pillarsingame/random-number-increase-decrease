@@ -6,45 +6,63 @@
  * HIGH is NOT pressed
  */
 
-const int counterButtonPin = A0;
-const int resetButtonPin = A1;
+const int increaseCounterButtonPin = A0;
+const int decreaseCounterButtonPin = A1;
 
-int currentCounterButtonState;
-int lastCounterButtonState = 1;
+const int resetButtonPin = A2;
+
+int currentIncreaseCounterButtonState;
+int lastIncreaseCounterButtonState = 1;
+
+int currentDecreaseCounterButtonState;
+int lastDecreaseCounterButtonState = 1;
 
 int currentResetButtonState;
 int lastResetButtonState = 1;
 
 void setupButtons() {
-  pinMode(counterButtonPin, INPUT_PULLUP);
+  pinMode(increaseCounterButtonPin, INPUT_PULLUP);
+  pinMode(decreaseCounterButtonPin, INPUT_PULLUP);
+  
   pinMode(resetButtonPin, INPUT_PULLUP);
 }
 
 void readButtons() {
-  currentCounterButtonState = digitalRead(counterButtonPin);
+  currentIncreaseCounterButtonState = digitalRead(increaseCounterButtonPin);
+  currentDecreaseCounterButtonState = digitalRead(decreaseCounterButtonPin);
+  
   currentResetButtonState = digitalRead(resetButtonPin);
 }
 
 void checkButtons() {
-  if (currentCounterButtonState == LOW && lastCounterButtonState == HIGH)
+  if (currentIncreaseCounterButtonState == LOW && lastIncreaseCounterButtonState == HIGH)
   {
     counter++;
     
-    lastCounterButtonState = LOW;
+    lastIncreaseCounterButtonState = LOW;
+  }
+  if (currentIncreaseCounterButtonState == HIGH && lastIncreaseCounterButtonState == LOW)
+  {
+    lastIncreaseCounterButtonState = HIGH;
   }
 
-  if (currentCounterButtonState == HIGH && lastCounterButtonState == LOW)
+  if (currentDecreaseCounterButtonState == LOW && lastDecreaseCounterButtonState == HIGH)
   {
-    lastCounterButtonState = HIGH;
+    counter--;
+    
+    lastDecreaseCounterButtonState = LOW;
+  }
+  if (currentDecreaseCounterButtonState == HIGH && lastDecreaseCounterButtonState == LOW)
+  {
+    lastDecreaseCounterButtonState = HIGH;
   }
 
   if (currentResetButtonState == LOW && lastResetButtonState == HIGH)
   {
-    counter = 0;
+    counter = static_cast<int>(random(0, 10000));
 
     lastResetButtonState = LOW;
   }
-
   if (currentResetButtonState == HIGH && lastResetButtonState == LOW)
   {
     lastResetButtonState = HIGH;

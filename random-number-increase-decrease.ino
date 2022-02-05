@@ -7,7 +7,7 @@ void setup() {
   setupButtons();
 }
 
-int counter = 0;
+int counter = static_cast<int>(random(0, 10000));
 
 // the loop routine runs over and over again forever:
 void loop() {
