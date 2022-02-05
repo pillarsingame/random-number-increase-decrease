@@ -137,7 +137,7 @@ void writeDigit(short digit, short displayDigit) {
         case 4:
         {
             digitalWrite(segmentA, LOW);
-            digitalWrite(segmentB, LOW);
+            digitalWrite(segmentB, HIGH);
             digitalWrite(segmentC, HIGH);
             digitalWrite(segmentD, LOW);
             digitalWrite(segmentE, LOW);
