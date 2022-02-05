@@ -223,7 +223,14 @@ void writeNumber(short number) {
         number /= 10;
     }
 
+        bool lastDigitWritten = false;
+
     for (short i = 0; i < 4; i++) {
-        writeDigit(digit[i], i + 1);
+        if (digit[i] != 0 || i == 3 || lastDigitWritten)
+        {
+            writeDigit(digit[i], i + 1);
+
+            lastDigitWritten = true;
+        }
     }
 }
