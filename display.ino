@@ -25,10 +25,10 @@ int segmentD = 5;
 int segmentE = 6;
 int segmentF = 7;
 int segmentG = 8;
-int displayDigit4 = 9;
-int displayDigit3 = 10;
-int displayDigit2 = 11;
-int displayDigit1 = 12;
+int displayDigit1 = 9;
+int displayDigit2 = 10;
+int displayDigit3 = 11;
+int displayDigit4 = 12;
 
 void setupDisplay() {
     // Initialize the digital segments as outputs.
