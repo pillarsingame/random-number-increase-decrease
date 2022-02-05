@@ -4,6 +4,8 @@
 void setupDisplay();
 
 void writeDigit(short digit, short displayDigit);
+void writeMinus();
+
 void writeNumber(short number);
 
 #endif

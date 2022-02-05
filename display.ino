@@ -214,7 +214,35 @@ void writeDigit(short digit, short displayDigit) {
     delay(4);
 }
 
+void writeMinus() {
+    digitalWrite(displayDigit1, LOW);
+    digitalWrite(displayDigit2, HIGH);
+    digitalWrite(displayDigit3, HIGH);
+    digitalWrite(displayDigit4, HIGH);
+
+    digitalWrite(segmentA, LOW);
+    digitalWrite(segmentB, LOW);
+    digitalWrite(segmentC, LOW);
+    digitalWrite(segmentD, LOW);
+    digitalWrite(segmentE, LOW);
+    digitalWrite(segmentF, LOW);
+    digitalWrite(segmentG, HIGH);
+    delay(4);
+}
+
 void writeNumber(short number) {
+    bool isNegative{false};
+
+    if (number < 0) {
+        isNegative = true;
+
+        number = -number;
+    }
+
+    if (isNegative) {
+        writeMinus();
+    }
+    
     short digit[4];
 
     for (short i = 3; i >= 0; i--) {
@@ -223,7 +251,7 @@ void writeNumber(short number) {
         number /= 10;
     }
 
-        bool lastDigitWritten = false;
+        bool lastDigitWritten{false};
 
     for (short i = 0; i < 4; i++) {
         if (digit[i] != 0 || i == 3 || lastDigitWritten)

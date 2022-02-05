@@ -59,7 +59,7 @@ void checkButtons() {
 
   if (currentResetButtonState == LOW && lastResetButtonState == HIGH)
   {
-    counter = static_cast<int>(random(0, 10000));
+    counter = static_cast<int>(random(-999, 10000));
 
     lastResetButtonState = LOW;
   }
