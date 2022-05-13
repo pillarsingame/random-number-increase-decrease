@@ -6,17 +6,21 @@ Datasheet for the display [here](http://www.datasheetcafe.com/f5461ah-datasheet-
 
 ## Pins
 
-display pins 1 to 12 are DISP1 to DISP12 <br>
+- display pins 1 to 12 are DISP1 to DISP12 <br>
+<br>
 
-arduino digital pins 2 to 12 are 2 to 12 <br>
-arduino analog pins 0 and 1 are A0 and A1 <br>
+- arduino digital pins 2 to 12 are 2 to 12
+- arduino analog pins 0 and 1 are A0 and A1
+<br>
 
-arduino ground is GND <br>
+- arduino ground is GND
+<br>
 
-counter increase button sides 1 and 2 are CIB1 and CIB2 <br>
-counter decrease button sides 1 and 2 are CDB1 and CDB2 <br>
+- counter increase button sides 1 and 2 are CIB1 and CIB2
+- counter decrease button sides 1 and 2 are CDB1 and CDB2
+<br>
 
-reset button sides 1 and 2 are RB1 and RB2 <br>
+- reset button sides 1 and 2 are RB1 and RB2
 
 ## Connections
 
